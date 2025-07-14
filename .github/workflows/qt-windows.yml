@@ -22,7 +22,7 @@ jobs:
         host: 'windows'
         target: 'desktop'
         arch: 'win64_msvc2017_64'
-        modules: 'gui core serialport network opengl xml'
+        # modules: 'gui core serialport network opengl xml'
     - name: qmake
       run: qmake .
     - name: make
