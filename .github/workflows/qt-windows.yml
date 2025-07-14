@@ -29,6 +29,34 @@ jobs:
         target: 'desktop'
         arch: 'win64_msvc2017_64'
         # modules: 'gui core serialport network opengl xml'
+    - name: Setup GStreamer
+      # You may pin to the exact commit or the version.
+      # uses: marcpabst/setup-gstreamer@e7032ed2235e72930087784c28e80a812020845e
+      uses: marcpabst/setup-gstreamer@v.1.5.3
+      with:
+        # version number
+        # The option configuration string for buliding GStreamer from source
+        gstreamerOptions: # optional, default is -Dlibnice:tests=disabled
+          -Dlibnice:examples=disabled
+          -Dopenh264:tests=disabled
+          -Dpygobject:tests=false
+          -Dpython=enabled
+          -Dlibav=enabled
+          -Dugly=enabled
+          -Dbad=enabled
+          -Ddevtools=enabled
+          -Dges=enabled
+          -Drtsp_server=enabled
+          -Dvaapi=enabled
+          -Dsharp=disabled
+          -Dgpl=enabled
+          -Dpython=disabled
+          -Dvaapi=disabled
+          -Dgst-plugins-base:pango=enabled
+          -Dgst-plugins-good:cairo=enabled
+          -Dgst-plugins-good:soup=enabled
+          -Dgst-plugins-good:soup-lookup-dep=true
+              
     - name: qmake
       run: qmake .
     - name: make
